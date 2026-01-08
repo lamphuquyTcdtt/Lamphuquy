@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Mobile UI Pro</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #111;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --red: #d32f2f;
+            --gold: #ffd700;
+            --dark: #151515;
+            --card: #1c1c1c;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--dark);
+            padding: 12px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--red);
+            color: var(--gold);
+            font-size: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* SECTIONS (TAB CONTENT) */
+        .page {
+            display: none;
+            animation: fade 0.4s ease;
+            padding-bottom: 80px; /* chừa chỗ cho bottom nav */
+        }
+
+        .active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* HERO */
+        .hero {
+            padding: 35px 20px;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba')
+            center/cover no-repeat;
+            height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-blend-mode: multiply;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .hero h1 {
+            font-size: 32px;
+            color: var(--gold);
+        }
+        .hero p {
+            margin-top: 8px;
+            font-size: 16px;
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--card);
+            padding: 18px;
+            margin: 15px;
+            border-radius: 14px;
+            border: 1px solid var(--red);
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+            color: var(--gold);
+        }
+
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* LINKS BUTTON LIST */
+        .link-item {
+            padding: 15px;
+            background: var(--dark);
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid var(--red);
+            color: var(--gold);
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            display: block;
+            transition: 0.25s;
+        }
+
+        .link-item:hover {
+            background: var(--red);
+            border-color: var(--gold);
+            color: #fff;
+            transform: scale(1.03);
+        }
+
+        /* BOTTOM NAVIGATION BAR */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 65px;
+            background: #000;
+            border-top: 1px solid var(--red);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            text-align: center;
+            width: 20%;
+            color: #aaa;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-item.active {
+            color: var(--gold);
+            transform: scale(1.08);
+        }
+
+        .nav-item i {
+            font-size: 22px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* CONTACT FORM */
+        input, textarea {
+            width: 90%;
+            padding: 14px;
+            margin: 12px auto;
+            display: block;
+            border-radius: 12px;
+            background: #222;
+            border: 1px solid var(--red);
+            color: white;
+            font-size: 15px;
+        }
+
+        button {
+            width: 90%;
+            padding: 15px;
+            margin: auto;
+            display: block;
+            background: var(--red);
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            color: white;
+            font-size: 17px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            color: var(--gold);
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>中国风 Pro UI</header>
+
+<!-- TAB 1 — HOME -->
+<div class="page active" id="tab-home">
+    <div class="hero">
+        <h1>Giao Diện Trung Quốc</h1>
+        <p>Đẹp – Sang – Chuẩn App Mobile</p>
+    </div>
+
+    <div class="card">
+        <h3>Giới thiệu</h3>
+        <p>Tôi chuyên thiết kế giao diện chuẩn phong cách Trung Quốc hiện đại.</p>
+    </div>
+
+    <div class="card">
+        <h3>Điểm nổi bật</h3>
+        <ul>
+            <li>Chuẩn mobile 100%</li>
+            <li>Đa tab hiện đại như app Douyin</li>
+            <li>Tông màu China Luxury</li>
+        </ul>
+    </div>
+</div>
+
+<!-- TAB 2 — SERVICES -->
+<div class="page" id="tab-services">
+    <div class="card-list">
+
+        <div class="card">
+            <h3>Thiết kế Web</h3>
+            <p>Giao diện Trung Quốc – bo góc – bóng đổ – neon đỏ vàng.</p>
+        </div>
+
+        <div class="card">
+            <h3>Thiết kế App</h3>
+            <p>UI Style Douyin / WeChat / XiaoHongShu.</p>
+        </div>
+
+        <div class="card">
+            <h3>Poster Trung Quốc</h3>
+            <p>China Luxury – China Neon – China New Year.</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- TAB 3 — LINKS -->
+<div class="page" id="tab-links">
+    <h2 style="text-align:center;color:var(--gold);margin-top:25px;">Liên Kết Quan Trọng</h2>
+
+    <div style="margin: 0 15px;">
+        <a class="link-item" href="https://facebook.com" target="_blank">🌟 Facebook</a>
+        <a class="link-item" href="https://tiktok.com" target="_blank">🎵 TikTok</a>
+        <a class="link-item" href="https://zalo.me" target="_blank">💬 Zalo</a>
+        <a class="link-item" href="https://youtube.com" target="_blank">▶ YouTube</a>
+        <a class="link-item" href="https://google.com" target="_blank">🌐 Website</a>
+    </div>
+</div>
+
+<!-- TAB 4 — ABOUT -->
+<div class="page" id="tab-about">
+    <div class="card">
+        <h3>Về Tôi</h3>
+        <p>Nhà thiết kế giao diện chuyên Trung Quốc – tối ưu mobile.</p>
+    </div>
+
+    <div class="card">
+        <h3>Kỹ năng chính</h3>
+        <ul>
+            <li>Thiết kế UI/UX</li>
+            <li>HTML / CSS</li>
+            <li>China Branding</li>
+        </ul>
+    </div>
+</div>
+
+<!-- TAB 5 — CONTACT -->
+<div class="page" id="tab-contact">
+    <h2 style="text-align:center;color:var(--gold);margin-top:25px;">Liên hệ</h2>
+
+    <input type="text" placeholder="Tên của bạn">
+    <input type="email" placeholder="Email">
+    <textarea rows="5" placeholder="Tin nhắn..."></textarea>
+    <button>Gửi ngay</button>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+    <div class="nav-item active" onclick="switchTab('home', this)">
+        <i>🏠</i> Home
+    </div>
+    <div class="nav-item" onclick="switchTab('services', this)">
+        <i>🛠️</i> Dịch vụ
+    </div>
+    <div class="nav-item" onclick="switchTab('links', this)">
+        <i>🔗</i> Links
+    </div>
+    <div class="nav-item" onclick="switchTab('about', this)">
+        <i>👤</i> Giới thiệu
+    </div>
+    <div class="nav-item" onclick="switchTab('contact', this)">
+        <i>📩</i> Liên hệ
+    </div>
+</div>
+
+<footer>
+    © 2026 LÂM PHÚ QUÝ | All Rights Reserved
+</footer>
+
+<script>
+function switchTab(tab, element) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById("tab-" + tab).classList.add("active");
+
+    document.querySelectorAll(".nav-item").forEach(i => i.classList.remove("active"));
+    element.classList.add("active");
+}
+</script>
+
+</body>
+</html>
