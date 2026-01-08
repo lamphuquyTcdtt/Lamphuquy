@@ -1,82 +1,137 @@
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vision AI</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông Báo Ngừng Hợp Tác</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
-      :root {
-        --bg-primary: #ffffff;
-        --bg-secondary: #fff0f5;
-        --bg-accent: #ffe4e1;
-        --text-primary: #1a202c;
-        --text-secondary: #718096;
-        --accent-color: #f56565;
-        --accent-color-hover: #e53e3e;
-        --accent-color-text: #ffffff;
-        --border-color: #fed7d7;
-        --ring-color: #fbb6ce;
-      }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #fff;
+        }
 
-      .dark:root {
-        --bg-primary: #1a202c;
-        --bg-secondary: #2d3748;
-        --bg-accent: #4a5568;
-        --text-primary: #f7fafc;
-        --text-secondary: #a0aec0;
-        --accent-color: #ed64a6;
-        --accent-color-hover: #d53f8c;
-        --accent-color-text: #ffffff;
-        --border-color: #4a5568;
-        --ring-color: #fbb6ce;
-      }
+        .notice-box {
+            max-width: 720px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease;
+        }
 
-      body {
-        font-family: 'Noto Sans JP', sans-serif;
-        background-color: var(--bg-primary);
-        color: var(--text-primary);
-      }
-      
-      @keyframes fall {
-        0% { transform: translateY(-10vh) translateX(-5vw) rotate(0deg); opacity: 0; }
-        10% { opacity: 1; }
-        100% { transform: translateY(110vh) translateX(5vw) rotate(360deg); opacity: 0; }
-      }
+        .notice-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
 
-      .sakura-petal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 15px;
-        height: 15px;
-        background-color: var(--accent-color);
-        border-radius: 7.5px 0;
-        animation: fall 15s linear infinite;
-        pointer-events: none;
-        z-index: 9999;
-        opacity: 0;
-      }
+        .effective-date {
+            text-align: center;
+            font-size: 14px;
+            color: #d1e8ff;
+            margin-bottom: 25px;
+        }
+
+        .notice-divider {
+            width: 90px;
+            height: 4px;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            margin: 0 auto 30px;
+            border-radius: 10px;
+        }
+
+        .notice-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #eaeaea;
+        }
+
+        .notice-content p {
+            margin-bottom: 18px;
+        }
+
+        .notice-footer {
+            margin-top: 35px;
+            text-align: right;
+            font-style: italic;
+            color: #cfd9df;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .notice-box {
+                padding: 25px;
+            }
+
+            .notice-title {
+                font-size: 22px;
+            }
+        }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
 </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+<body>
+
+    <div class="notice-box">
+        <div class="notice-title">THÔNG BÁO NGỪNG HỢP TÁC</div>
+
+        <!-- NGÀY HIỆU LỰC -->
+        <div class="effective-date">
+            Ngày hiệu lực: <strong>08/01/2026</strong>
+        </div>
+
+        <div class="notice-divider"></div>
+
+        <div class="notice-content">
+            <p>
+                Chúng tôi xin trân trọng thông báo rằng, kể từ ngày hiệu lực nêu trên,
+                website chính thức của chúng tôi sẽ <strong>chấm dứt hợp tác</strong>
+                với <strong>Hoàn Hải Hân Thành Đạt</strong>.
+            </p>
+
+            <p>
+                Quyết định này được đưa ra dựa trên định hướng phát triển lâu dài,
+                nhằm đảm bảo sự minh bạch, hiệu quả và phù hợp với chiến lược hoạt động
+                trong giai đoạn tiếp theo.
+            </p>
+
+            <p>
+                Kể từ thời điểm có hiệu lực, mọi nội dung, hình ảnh, thông tin hoặc
+                hoạt động liên quan đến sự hợp tác trước đây sẽ không còn giá trị
+                trên hệ thống của chúng tôi.
+            </p>
+
+            <p>
+                Chúng tôi trân trọng ghi nhận sự hợp tác trong thời gian vừa qua
+                và kính chúc quý đối tác nhiều thành công trong các dự án sắp tới.
+            </p>
+        </div>
+
+        <div class="notice-footer">
+            Trân trọng,<br>
+            Ban Quản Trị Website
+        </div>
+    </div>
+
+</body>
 </html>
