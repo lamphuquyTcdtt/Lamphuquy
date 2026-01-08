@@ -1,213 +1,82 @@
-{% extends "admin/base.html" %}
 
-{% block admin_content %}
-<div class="admin-header">
-    <div class="admin-title">Dashboard</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vision AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-primary: #ffffff;
+        --bg-secondary: #fff0f5;
+        --bg-accent: #ffe4e1;
+        --text-primary: #1a202c;
+        --text-secondary: #718096;
+        --accent-color: #f56565;
+        --accent-color-hover: #e53e3e;
+        --accent-color-text: #ffffff;
+        --border-color: #fed7d7;
+        --ring-color: #fbb6ce;
+      }
 
-<div class="admin-stats">
-    <div class="stat-card">
-        <div class="stat-title">Total Users</div>
-        <div class="stat-value">{{ stats.total_users }}</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-title">Total Votes</div>
-        <div class="stat-value">{{ stats.total_votes }}</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-title">TTS Votes</div>
-        <div class="stat-value">{{ stats.tts_votes }}</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-title">Conversational Votes</div>
-        <div class="stat-value">{{ stats.conversational_votes }}</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-title">TTS Models</div>
-        <div class="stat-value">{{ stats.tts_models }}</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-title">Conversational Models</div>
-        <div class="stat-value">{{ stats.conversational_models }}</div>
-    </div>
-</div>
+      .dark:root {
+        --bg-primary: #1a202c;
+        --bg-secondary: #2d3748;
+        --bg-accent: #4a5568;
+        --text-primary: #f7fafc;
+        --text-secondary: #a0aec0;
+        --accent-color: #ed64a6;
+        --accent-color-hover: #d53f8c;
+        --accent-color-text: #ffffff;
+        --border-color: #4a5568;
+        --ring-color: #fbb6ce;
+      }
 
-<div class="admin-card">
-    <div class="admin-card-header">
-        <div class="admin-card-title">Daily Votes (Last 30 Days)</div>
-    </div>
-    <canvas id="votesChart" height="200"></canvas>
-</div>
+      body {
+        font-family: 'Noto Sans JP', sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+      }
+      
+      @keyframes fall {
+        0% { transform: translateY(-10vh) translateX(-5vw) rotate(0deg); opacity: 0; }
+        10% { opacity: 1; }
+        100% { transform: translateY(110vh) translateX(5vw) rotate(360deg); opacity: 0; }
+      }
 
-<div class="admin-card">
-    <div class="admin-card-header">
-        <div class="admin-card-title">Top TTS Models</div>
-    </div>
-    <div class="table-responsive">
-        <table class="admin-table">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Model</th>
-                    <th>ELO Score</th>
-                    <th>Win Rate</th>
-                    <th>Total Matches</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for model in top_tts_models %}
-                <tr>
-                    <td>{{ loop.index }}</td>
-                    <td>{{ model.name }}</td>
-                    <td>{{ model.current_elo|int }}</td>
-                    <td>{{ model.win_rate|round }}%</td>
-                    <td>{{ model.match_count }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="admin-card">
-    <div class="admin-card-header">
-        <div class="admin-card-title">Top Conversational Models</div>
-    </div>
-    <div class="table-responsive">
-        <table class="admin-table">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Model</th>
-                    <th>ELO Score</th>
-                    <th>Win Rate</th>
-                    <th>Total Matches</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for model in top_conversational_models %}
-                <tr>
-                    <td>{{ loop.index }}</td>
-                    <td>{{ model.name }}</td>
-                    <td>{{ model.current_elo|int }}</td>
-                    <td>{{ model.win_rate|round }}%</td>
-                    <td>{{ model.match_count }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="admin-row">
-    <div class="admin-card">
-        <div class="admin-card-header">
-            <div class="admin-card-title">Recent Votes</div>
-            <a href="{{ url_for('admin.votes') }}" class="btn-secondary">View All</a>
-        </div>
-        <div class="table-responsive">
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Type</th>
-                        <th>User</th>
-                        <th>Chosen Model</th>
-                        <th>Rejected Model</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for vote in recent_votes %}
-                    <tr>
-                        <td>{{ vote.vote_date.strftime('%Y-%m-%d %H:%M') }}</td>
-                        <td>{{ vote.model_type }}</td>
-                        <td>
-                            {% if vote.user %}
-                                <a href="{{ url_for('admin.user_detail', user_id=vote.user.id) }}">{{ vote.user.username }}</a>
-                            {% else %}
-                                Anonymous
-                            {% endif %}
-                        </td>
-                        <td>{{ vote.chosen.name }}</td>
-                        <td>{{ vote.rejected.name }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-<div class="admin-row">
-    <div class="admin-card">
-        <div class="admin-card-header">
-            <div class="admin-card-title">Recent Users</div>
-            <a href="{{ url_for('admin.users') }}" class="btn-secondary">View All</a>
-        </div>
-        <div class="table-responsive">
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Join Date</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for user in recent_users %}
-                    <tr>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.join_date.strftime('%Y-%m-%d %H:%M') }}</td>
-                        <td>
-                            <a href="{{ url_for('admin.user_detail', user_id=user.id) }}" class="btn-secondary">View Details</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const votesData = {{ daily_votes_data|safe }};
-    
-    // Daily votes chart
-    const votesCtx = document.getElementById('votesChart').getContext('2d');
-    new Chart(votesCtx, {
-        type: 'line',
-        data: {
-            labels: votesData.labels,
-            datasets: [{
-                label: 'Daily Votes',
-                data: votesData.counts,
-                backgroundColor: 'rgba(80, 70, 229, 0.1)',
-                borderColor: 'rgba(80, 70, 229, 1)',
-                borderWidth: 2,
-                tension: 0.3,
-                fill: true,
-                pointRadius: 3,
-                pointBackgroundColor: '#5046e5'
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        precision: 0
-                    }
-                }]
-            },
-            tooltips: {
-                mode: 'index',
-                intersect: false
-            }
-        }
-    });
-});
+      .sakura-petal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 15px;
+        height: 15px;
+        background-color: var(--accent-color);
+        border-radius: 7.5px 0;
+        animation: fall 15s linear infinite;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
 </script>
-{% endblock %} 
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
