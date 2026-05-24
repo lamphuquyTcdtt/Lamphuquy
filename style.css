@@ -1,339 +1,238 @@
+/* Reset CSS & Biến hệ thống */
+:root {
+  --bg-gradient: linear-gradient(to right, #000000, #434343); /* Màu nền chân ái */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-sub: #b3b3b3;
+  --neon-glow: 0 0 15px rgba(255, 255, 255, 0.2);
+  --font-title: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Be Vietnam Pro', sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --avatar-size: 150px;
-  --avatar-size-mobile: 120px;
+body {
+  background: var(--bg-gradient);
+  font-family: var(--font-body);
+  color: var(--text-main);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
 }
 
-html, body {
+/* FPS Counter */
+.fps-counter {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  z-index: 999;
+  font-family: var(--font-title);
+  border: 1px solid var(--glass-border);
+  letter-spacing: 1px;
+}
+
+/* Snow Effect Base */
+.snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #000000, #1a2a44, #434343);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white;
-  text-align: center;
-}
-
-.container {
-  padding: 20px;
-  z-index: 10;
-}
-
-.avatar-frame {
-  position: relative;
-  width: var(--avatar-size);
-  height: var(--avatar-size);
-  margin: 0 auto 15px;
-}
-
-.avatar {
-  width: var(--avatar-size);
-  height: var(--avatar-size);
-  border-radius: 50%;
-  object-fit: cover;
-  position: relative;
+  pointer-events: none;
   z-index: 1;
 }
 
-.avatar-border {
+.snowflake {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: calc(var(--avatar-size) * 1.11);
-  height: calc(var(--avatar-size) * 1.11);
-  transform: translate(-50%, -50%);
-  z-index: 2;
+  color: #ffffff;
   pointer-events: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
+@keyframes fall {
+  0% { transform: translateY(-20px) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Container chính Glassmorphism */
+.container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 420px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 35px 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Avatar xoay 360 độ nhẹ nhàng khi di chuột */
+.avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+  object-fit: cover;
+  box-shadow: var(--neon-glow);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.avatar:hover {
+  transform: rotate(360deg);
+}
+
+/* Khu vực Tên - ĐÃ FIX LỆCH TÍCH XANH */
 .name {
-  font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 10px;
+  font-family: var(--font-title);
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+  
+  display: flex;
+  align-items: center;       /* Căn giữa chữ và ảnh theo chiều dọc */
+  justify-content: center;    /* Căn giữa toàn bộ dòng ra chính giữa khung */
+  gap: 8px;                  /* Khoảng cách vừa vặn giữa tên và tích */
 }
 
-.verified-badge {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-  margin-left: 4px;
+/* Custom ảnh tích xanh đã xóa nền */
+.verified-img {
+  width: 22px;               /* Thu nhỏ lại 1 tí cho cân xứng với chữ */
+  height: 22px;
+  object-fit: contain;
+  /* Đổ bóng chạy theo viền rỗng của ảnh PNG */
+  filter: drop-shadow(0 0 6px rgba(0, 162, 255, 0.5)); 
 }
 
+/* Thông tin text mô tả */
 .info {
-  margin-top: 25px;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.8;
-  color: #00fff2;
+  color: var(--text-sub);
+  margin-bottom: 30px;
+}
+
+.info p {
+  margin-bottom: 4px;
+}
+
+.info .highlight {
+  color: #ff4757;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255, 71, 87, 0.3);
+}
+
+.info a {
+  color: #00ff88;
+  text-decoration: none;
   font-weight: 600;
-  padding: 0 15px;
-  text-shadow: 0 0 4px #00fff2, 0 0 10px rgba(0, 255, 242, 0.5);
-  animation: fadeInUp 1s ease-in-out;
+  transition: opacity 0.2s;
 }
 
-.info .button {
-  font-weight: 900;
-  color: #000000;
-  background: linear-gradient(90deg, #00fff2, #00d4ff);
-  padding: 5px 12px;
-  border-radius: 8px;
-  display: inline-block;
-  margin-top: 10px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  font-size: 18px;
-  line-height: normal;
+.info a:hover {
+  opacity: 0.8;
 }
 
-.info .button:hover {
-  background: linear-gradient(90deg, #00d4ff, #00fff2);
-  box-shadow: 0 4px 12px rgba(0, 255, 242, 0.75);
-  transform: scale(1.05);
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Khu vực nút bấm MXH */
 .button-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 14px;
-  margin-top: 30px;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .button {
-  background-color: rgba(0, 0, 0, 0.85);
-  color: white;
-  border: 2px solid #00fff2;
+  display: block;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
   border-radius: 14px;
-  padding: 14px 26px;
-  min-width: 190px;
-  max-width: 270px;
-  width: 100%;
-  font-size: 17px;
-  font-weight: 900;
-  box-shadow: 0 4px 12px rgba(0, 255, 242, 0.5);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transform-origin: center;
-  animation: fadeInUp 1s ease-in-out;
-  animation-fill-mode: both;
-}
-
-.button-container .button:nth-child(1) {
-  animation-delay: 0.2s;
-}
-.button-container .button:nth-child(2) {
-  animation-delay: 0.4s;
-}
-.button-container .button:nth-child(3) {
-  animation-delay: 0.6s;
-}
-.button-container .button:nth-child(4) {
-  animation-delay: 0.8s;
-}
-.button-container .button:nth-child(5) {
-  animation-delay: 1s;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover {
-  background-color: #00fff2;
-  color: #333333;
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 255, 242, 0.75);
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
 }
 
-.button-container .button:nth-child(1):hover {
-  background: linear-gradient(135deg, #37aee2 0%, #1e96c8 100%);
-  box-shadow: 0 0 15px rgba(55, 174, 226, 0.6), 0 0 30px rgba(30, 150, 200, 0.4);
-  transition: all 0.3s ease;
-  color: white;
-}
-
-.button-container .button:nth-child(2):hover {
-  background: linear-gradient(135deg, #1877f2 0%, #145dbf 100%);
-  box-shadow: 0 0 15px rgba(24, 119, 242, 0.6), 0 0 30px rgba(20, 93, 191, 0.4);
-  transition: all 0.3s ease;
-  color: white;
-}
-
-.button-container .button:nth-child(3):hover {
-  background-color: #ff4d6d;
-  box-shadow: 0 0 8px rgba(255, 77, 109, 0.5), 0 0 16px rgba(255, 77, 109, 0.3);
-  color: white;
-  transition: all 0.3s ease;
-}
-
-.button-container .button:nth-child(4):hover {
-  background-color: #9ca3af;
-  box-shadow:
-    0 0 10px rgba(156, 163, 175, 0.4),
-    0 0 20px rgba(156, 163, 175, 0.3);
-  color: black;
-  transition: all 0.3s ease;
-}
-
-.divider {
-  margin: 30px auto;
-  border: none;
-  height: 2px;
-  width: 85%;
-  background: linear-gradient(90deg, #00fff2, #00d4ff);
-  box-shadow: 0 0 8px rgba(0, 255, 242, 0.5);
-  animation: fadeInUp 1.2s ease-in-out 1s;
-  animation-fill-mode: both;
-}
-
-.donate-section {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.donate-section h3 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
-  color: #00fff2;
-  text-shadow: 0 0 4px #00fff2, 0 0 10px rgba(0, 255, 242, 0.5);
-  font-weight: 600;
-  margin-bottom: 10px;
-  animation: fadeInUp 1.3s ease-in-out 1.1s;
-  animation-fill-mode: both;
-}
-
-.qr-code {
-  max-width: 270px;
-  height: auto;
-  border: 2px solid #00fff2;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 255, 242, 0.5);
-  transition: all 0.25s ease;
-  animation: fadeInUp 1s ease-in-out 1.2s;
-  animation-fill-mode: both;
-}
-
-.qr-code:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 255, 242, 0.75);
-}
-
-.bank-info {
-  margin-top: 12px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #00fff2;
-  text-shadow: 0 0 4px #00fff2, 0 0 10px rgba(0, 255, 242, 0.5);
-  animation: fadeInUp 1s ease-in-out 1.4s;
-  animation-fill-mode: both;
-}
-
-.music-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(0, 0, 0, 0.85);
-  color: white;
-  border: 2px solid #00fff2;
-  border-radius: 50%;
+.grid-container {
   display: flex;
   align-items: center;
+  gap: 12px;
   justify-content: center;
-  font-size: 20px;
+}
+
+.grid-container i {
+  font-size: 18px;
+}
+
+/* Bộ đếm thời gian */
+.timer {
+  font-family: var(--font-title);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-sub);
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Menu chọn nhạc */
+.music-player {
+  margin-top: 15px;
+}
+
+select {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--text-main);
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 255, 242, 0.5);
-  transition: all 0.25s ease;
-  z-index: 20;
+  transition: all 0.3s ease;
+  text-align-last: center;
 }
 
-.music-btn:hover {
-  background-color: #00fff2;
-  color: #333333;
-  transform: scale(1.1);
-  box-shadow: 0 6px 18px rgba(0, 255, 242, 0.75);
+select:hover {
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-#download-qr-btn {
-  margin-top: 20px;
-  animation: fadeInUp 1s ease-in-out 1.6s;
-  animation-fill-mode: both;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (max-width: 480px) {
-  .avatar-frame {
-    width: var(--avatar-size-mobile);
-    height: var(--avatar-size-mobile);
-  }
-
-  .avatar {
-    width: var(--avatar-size-mobile);
-    height: var(--avatar-size-mobile);
-  }
-
-  .avatar-border {
-    width: calc(var(--avatar-size-mobile) * 1.11);
-    height: calc(var(--avatar-size-mobile) * 1.11);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .name {
-    font-size: 24px;
-  }
-
-  .info {
-    font-size: 16px;
-  }
-
-  .info .button {
-    padding: 4px 10px;
-    font-size: 17px;
-    line-height: normal;
-  }
-
-  .button {
-    font-size: 16px;
-    width: 90%;
-  }
-
-  .divider {
-    width: 90%;
-    margin: 20px auto;
-  }
-
-  .donate-section h3 {
-    font-size: 1rem;
-  }
-
-  .qr-code {
-    max-width: 220px;
-  }
-
-  .music-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-    bottom: 15px;
-    right: 15px;
-  }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
